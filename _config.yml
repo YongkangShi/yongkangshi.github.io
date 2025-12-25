@@ -99,6 +99,11 @@ backgroud_animation: true
 # Enable mouse click effect
 mouse_click_effect: true
 
+# Enable mouse move effect (cnblog-mouse)
+mouse_move_effect: true
+mouse_move_effect_type: 10 # 1 ~ 12
+mouse_move_effect_color: false # false for random, or CSS color string
+
 # The CDN endpoint for media resources.
 # Notice that once it is assigned, the CDN url
 # will be added to all media resources (site avatar, posts' images, audio and video files) paths starting with '/'

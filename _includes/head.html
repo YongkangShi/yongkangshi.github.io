@@ -110,6 +110,28 @@
     <script async src="{{ '/assets/js/lib/fireworks.js' | relative_url }}"></script>
   {% endif %}
 
+  {% if site.mouse_move_effect %}
+    <script defer src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script defer src="{{ '/assets/js/lib/mouse.min.js' | relative_url }}"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        try {
+          if (
+            typeof window.matchMedia === 'function' &&
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches
+          ) {
+            return;
+          }
+          if (!window.jQuery || typeof window.jQuery.shuicheMouse !== 'function') return;
+          window.jQuery.shuicheMouse({
+            type: {{ site.mouse_move_effect_type | default: 10 }},
+            color: {{ site.mouse_move_effect_color | default: false | jsonify }}
+          });
+        } catch (e) {}
+      });
+    </script>
+  {% endif %}
+
   {% include js-selector.html lang=lang %}
 
   {% if jekyll.environment == 'production' %}
