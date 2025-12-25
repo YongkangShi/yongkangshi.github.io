@@ -227,3 +227,8 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+# -------------------------- Custom Visual Effects --------------------------
+effects:
+  animated_background: true
+  click: true
