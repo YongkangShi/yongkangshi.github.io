@@ -106,6 +106,10 @@
 
   <script src="{{ '/assets/js/dist/theme.min.js' | relative_url }}"></script>
 
+  {% if site.mouse_click_effect %}
+    <script async src="{{ '/assets/js/lib/fireworks.js' | relative_url }}"></script>
+  {% endif %}
+
   {% include js-selector.html lang=lang %}
 
   {% if jekyll.environment == 'production' %}

@@ -93,6 +93,12 @@ pageviews:
 #
 theme_mode: # [light | dark]
 
+# Enable animated background effect
+backgroud_animation: true
+
+# Enable mouse click effect
+mouse_click_effect: true
+
 # The CDN endpoint for media resources.
 # Notice that once it is assigned, the CDN url
 # will be added to all media resources (site avatar, posts' images, audio and video files) paths starting with '/'
@@ -227,8 +233,3 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
-
-# -------------------------- Custom Visual Effects --------------------------
-effects:
-  animated_background: true
-  click: true

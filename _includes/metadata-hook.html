@@ -1,11 +1,1 @@
 <!-- A placeholder to allow defining custom metadata -->
-
-{%- if site.effects and site.effects.animated_background -%}
-  <script>
-    document.documentElement.classList.add('animated-bg');
-  </script>
-{%- endif -%}
-
-{%- if site.effects and site.effects.click -%}
-  <script defer src="{{ '/assets/js/data/click-effect.js' | relative_url }}"></script>
-{%- endif -%}
