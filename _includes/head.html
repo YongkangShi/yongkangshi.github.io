@@ -106,11 +106,11 @@
 
   <script src="{{ '/assets/js/dist/theme.min.js' | relative_url }}"></script>
 
-  {% if site.mouse_click_effect %}
+  {% if site.mouse_click_effect and page.mouse_click_effect != false %}
     <script async src="{{ '/assets/js/lib/fireworks.js' | relative_url }}"></script>
   {% endif %}
 
-  {% if site.mouse_move_effect %}
+  {% if site.mouse_move_effect and page.mouse_move_effect != false %}
     <script defer src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     <script defer src="{{ '/assets/js/lib/mouse.min.js' | relative_url }}"></script>
     <script>

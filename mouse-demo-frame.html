@@ -1,0 +1,91 @@
+---
+layout: null
+permalink: /mouse-demo/frame/
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mouse Demo Frame</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        background: radial-gradient(circle at 20% 10%, #f0f8ff, #ffffff 60%);
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+          "Segoe UI Emoji";
+      }
+
+      .hint {
+        position: fixed;
+        left: 12px;
+        top: 12px;
+        z-index: 1;
+        padding: 10px 12px;
+        border-radius: 10px;
+        background: rgb(255 255 255 / 85%);
+        border: 1px solid rgb(0 0 0 / 8%);
+        color: #333;
+        max-width: 520px;
+      }
+
+      .hint code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+          monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hint">
+      在此区域移动鼠标查看效果。参数来自 URL：<code>?type=1~12&amp;color=false|...</code>
+    </div>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script defer src="{{ '/assets/js/lib/mouse.min.js' | relative_url }}"></script>
+    <script>
+      (function () {
+        function getParam(name) {
+          const url = new URL(window.location.href);
+          return url.searchParams.get(name);
+        }
+
+        function parseType(value) {
+          const n = Number.parseInt(value || "10", 10);
+          if (!Number.isFinite(n)) return 10;
+          return Math.min(12, Math.max(1, n));
+        }
+
+        function parseColor(value) {
+          if (!value) return false;
+          const trimmed = value.trim();
+          if (trimmed === "" || trimmed.toLowerCase() === "false") return false;
+          return trimmed;
+        }
+
+        function init() {
+          if (
+            typeof window.matchMedia === "function" &&
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ) {
+            return;
+          }
+
+          if (!window.jQuery || typeof window.jQuery.shuicheMouse !== "function") return;
+
+          const type = parseType(getParam("type"));
+          const color = parseColor(getParam("color"));
+
+          window.jQuery.shuicheMouse({ type, color });
+        }
+
+        document.addEventListener("DOMContentLoaded", init);
+      })();
+    </script>
+  </body>
+</html>
