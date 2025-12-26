@@ -18,7 +18,7 @@ timezone: Asia/Shanghai
 
 title: "Kang's blog" # the main title
 
-tagline: tagline # it will display as the subtitle
+tagline: A complete novice in technology # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   description
@@ -90,7 +90,7 @@ pageviews:
 #     light — Use the light color scheme
 #     dark — Use the dark color scheme
 #
-theme_mode: # [light | dark]
+theme_mode: light # [light | dark]
 
 # Enable animated background effect
 backgroud_animation: true
@@ -111,7 +111,7 @@ mouse_move_effect_color: false # false for random, or CSS color string
 cdn: ""
 
 # the avatar on sidebar, support local or CORS resources
-avatar: ""
+avatar: "/assets/img/avatar/tx.png"
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
