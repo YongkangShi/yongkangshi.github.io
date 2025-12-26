@@ -75,3 +75,13 @@
     }
   }
 }
+
+::selection {
+  background: #00c4b7;
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: #00c4b7;
+  color: #ffffff;
+}
