@@ -21,7 +21,7 @@
             preferred = localStorage.getItem(KEY);
           } catch (e) {}
 
-          if (preferred !== 'dark' && preferred !== 'light') preferred = 'light';
+          if (preferred !== 'dark' && preferred !== 'light') preferred = 'dark';
 
           try {
             sessionStorage.setItem(KEY, preferred);
