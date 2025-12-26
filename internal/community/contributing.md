@@ -86,8 +86,6 @@ When development is complete, create a [Conventional Commit][cc] with Git.
 
 ## Helpful Resources
 
-- [Code of conduct](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/docs/CODE_OF_CONDUCT.md)
-- [Security policy](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/docs/SECURITY.md)
 - [How To Ask Questions The Smart Way][ext-reading]
 
 [latest-ver]: https://github.com/cotes2020/jekyll-theme-chirpy/releases/latest
@@ -107,3 +105,4 @@ When development is complete, create a [Conventional Commit][cc] with Git.
 [dev-env]: https://github.com/cotes2020/jekyll-theme-chirpy/wiki/Development-&-Test-Environments
 [cc]: https://www.conventionalcommits.org/
 [gh-pr]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
+
