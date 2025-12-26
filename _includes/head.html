@@ -9,6 +9,69 @@
     content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
   >
 
+  <!-- Theme Mode -->
+  {% unless site.theme_mode %}
+    <script>
+      (function () {
+        try {
+          var KEY = 'mode';
+          var preferred = null;
+
+          try {
+            preferred = localStorage.getItem(KEY);
+          } catch (e) {}
+
+          if (preferred !== 'dark' && preferred !== 'light') preferred = 'light';
+
+          try {
+            sessionStorage.setItem(KEY, preferred);
+          } catch (e) {}
+
+          document.addEventListener(
+            'click',
+            function (event) {
+              var target = event.target;
+              if (!target || !target.closest) return;
+              var btn = target.closest('#mode-toggle');
+              if (!btn) return;
+
+              event.preventDefault();
+              event.stopImmediatePropagation();
+
+              var current =
+                (function () {
+                  try {
+                    return sessionStorage.getItem(KEY);
+                  } catch (e) {
+                    return null;
+                  }
+                })() ||
+                document.documentElement.getAttribute('data-mode') ||
+                preferred ||
+                'light';
+
+              var next = current === 'dark' ? 'light' : 'dark';
+
+              try {
+                sessionStorage.setItem(KEY, next);
+              } catch (e) {}
+
+              try {
+                localStorage.setItem(KEY, next);
+              } catch (e) {}
+
+              document.documentElement.setAttribute('data-mode', next);
+              window.postMessage({ id: 'theme-mode' }, '*');
+            },
+            true
+          );
+        } catch (e) {}
+      })();
+    </script>
+  {% endunless %}
+
+  <script src="{{ '/assets/js/dist/theme.min.js' | relative_url }}"></script>
+
   {%- capture seo_tags -%}
     {% seo title=false %}
   {%- endcapture -%}
@@ -103,20 +166,6 @@
   {% endif %}
 
   <!-- Scripts -->
-
-  {% unless site.theme_mode %}
-    <script>
-      (function () {
-        try {
-          if (!sessionStorage.getItem('mode')) {
-            sessionStorage.setItem('mode', 'light');
-          }
-        } catch (e) {}
-      })();
-    </script>
-  {% endunless %}
-
-  <script src="{{ '/assets/js/dist/theme.min.js' | relative_url }}"></script>
 
   {% if site.mouse_click_effect and page.mouse_click_effect != false %}
     <script async src="{{ '/assets/js/lib/fireworks.js' | relative_url }}"></script>
