@@ -104,6 +104,18 @@
 
   <!-- Scripts -->
 
+  {% unless site.theme_mode %}
+    <script>
+      (function () {
+        try {
+          if (!sessionStorage.getItem('mode')) {
+            sessionStorage.setItem('mode', 'light');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  {% endunless %}
+
   <script src="{{ '/assets/js/dist/theme.min.js' | relative_url }}"></script>
 
   {% if site.mouse_click_effect and page.mouse_click_effect != false %}
